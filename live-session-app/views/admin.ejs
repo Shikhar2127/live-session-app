@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Admin - Start Session</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 24px; }
+    .btn { padding: 10px 18px; font-size: 16px; cursor: pointer; }
+    .session-info { margin-top: 16px; }
+    video { max-width: 100%; margin-top: 12px; background: #000; }
+    .controls { margin-top: 8px; }
+  </style>
+</head>
+<body>
+  <h2>Admin — Start Live Session</h2>
+  <button id="startBtn" class="btn">START SESSION</button>
+
+  <div id="sessionArea" class="session-info" style="display:none;">
+    <p>Session Created. Share this URL with students:</p>
+    <input id="sessionUrl" style="width:80%" readonly />
+    <p>Video Player:</p>
+    <!-- HTML5 video player -->
+    <video id="videoPlayer" controls>
+      <!-- Put a sample video in public/videos/sample.mp4 -->
+      <source src="/public/videos/lectures.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <div class="controls">
+      <button id="playPause" class="btn">Play</button>
+      Volume: <input id="volume" type="range" min="0" max="1" step="0.05" value="1" />
+      <button id="fullscreen" class="btn">Fullscreen</button>
+
+      <label style="margin-left:12px">Playback rate:
+        <select id="playbackRate">
+          <option value="0.5">0.5x</option>
+          <option value="0.75">0.75x</option>
+          <option value="1" selected>1x</option>
+          <option value="1.25">1.25x</option>
+          <option value="1.5">1.5x</option>
+          <option value="2">2x</option>
+        </select>
+      </label>
+    </div>
+  </div>
+
+  <script src="/public/js/admin.js"></script>
+  <script>
+    // pass baseUrl
+    window.BASE_URL = "<%= baseUrl %>";
+  </script>
+</body>
+</html>

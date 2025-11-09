@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Student - Session <%= session.unique_id %></title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 18px; }
+    video { max-width: 100%; background: #000; }
+    .controls { margin-top: 8px; }
+  </style>
+</head>
+<body>
+  <h3>Student View — Session</h3>
+  <p>Session ID: <strong><%= session.unique_id %></strong></p>
+
+  <video id="videoPlayer" controls>
+    <source src="/public/videos/lectures.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="controls">
+    <button id="playPause">Play</button>
+    Volume: <input id="volume" type="range" min="0" max="1" step="0.05" value="1" />
+    <button id="fullscreen">Fullscreen</button>
+    <label style="margin-left:12px">Playback rate:
+      <select id="playbackRate">
+        <option value="0.5">0.5x</option>
+        <option value="0.75">0.75x</option>
+        <option value="1" selected>1x</option>
+        <option value="1.25">1.25x</option>
+        <option value="1.5">1.5x</option>
+        <option value="2">2x</option>
+      </select>
+    </label>
+  </div>
+
+  <script src="/public/js/student.js"></script>
+</body>
+</html>
